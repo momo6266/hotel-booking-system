@@ -1,0 +1,1 @@
+A comprehensive system for managing hotel reservations, room availability, and customer check-ins/check-outs. This project simplifies the booking process and enhances the efficiency of hotel management through an intuitive interface for both staff and guests.
