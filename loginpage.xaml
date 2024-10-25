@@ -1,0 +1,80 @@
+﻿<Page
+    x:Class="radAssignment2.loginpage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:radAssignment2"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    >
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="1.5*" />
+        </Grid.ColumnDefinitions>
+
+        <!--<Image Source="/Images/close.png" Grid.Column="1" Panel.ZIndex="1" MouseUp="Image_MouseUp" Style="{StaticResource imgClose}"/>-->
+
+        <Border CornerRadius="10 0 0 10" HorizontalAlignment="Left" Width="600" Margin="-10,1,0,-1">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#06619B" Offset="0" />
+                    <GradientStop Color="#00B19B" Offset="1" />
+                </LinearGradientBrush>
+            </Border.Background>
+
+            <Grid HorizontalAlignment="Right" Width="570">
+
+                <StackPanel VerticalAlignment="Center" Margin="10,0,40,0">
+                    <TextBlock Text="Sign Up" Style="{StaticResource TitleText}" Height="97" />
+                    <TextBlock Text="No account? Create one!" Opacity="0.8" Margin="20 30 20 30" Style="{StaticResource NormalText}" RenderTransformOrigin="0.5,0.5" Height="82" UseLayoutRounding="False" d:LayoutRounding="Auto" >
+                        <TextBlock.RenderTransform>
+                            <CompositeTransform Rotation="-0.117"/>
+                        </TextBlock.RenderTransform>
+                    </TextBlock>
+                    <Button x:Name="toSignUpButton" Content="Sign Up" Style="{StaticResource button}" HorizontalAlignment="Center" Width="273" Click="toSignUpButton_Click"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <Border Background="#FFFFFF" Grid.Column="1" CornerRadius="0 10 10 0">
+
+                <StackPanel VerticalAlignment="Center" Margin="211,0,241,0">
+                    <TextBlock Text="Sign in to App" Foreground="#3AB19B" Style="{StaticResource TitleText}" Height="85" />
+
+                    <Border BorderBrush="#ACB0AF" BorderThickness="1" Margin="70 7" CornerRadius="5">
+                        <Grid Margin="7 9">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <!--<Image Source="/Images/Email.png" Height="20" />-->
+                            <!--<TextBlock x:Name="textEmail" Text="Email" Style="{StaticResource textHint}" />-->
+                            <TextBox Name="txtEmail" PlaceholderText="Email" Style="{StaticResource textBox}" Margin="-1,0,11,0" />
+                        </Grid>
+                    </Border>
+
+                    <Border BorderBrush="#ACB0AF" BorderThickness="1" Margin="70 7" CornerRadius="5">
+                        <Grid Margin="7 9">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <!--<Image Source="/Images/Lock.png" Height="20" />-->
+                            <!--<TextBlock x:Name="textPassword" Text="Password" Style="{StaticResource textHint}" />-->
+                            <PasswordBox x:Name="passwordBox" PlaceholderText="Password" Style="{StaticResource textBox}" Margin="0,0,10,0" />
+                        </Grid>
+                    </Border>
+                    <Button x:Name="signInButton" Content="Sign In" Style="{StaticResource mainButton}" HorizontalAlignment="Center" Width="250" Click="signInButton_Click"/>
+                </StackPanel>
+
+        </Border>
+
+
+
+    </Grid>
+</Page>

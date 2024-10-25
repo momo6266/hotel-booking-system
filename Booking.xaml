@@ -1,0 +1,134 @@
+﻿<Page
+    x:Class="radAssignment2.Booking"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:radAssignment2"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <!-- The first row contains the CommandBar -->
+            <RowDefinition Height="56" />
+            <!-- The second row contains the content -->
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Border x:Name="Commandbarborder" Grid.Row="0">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#06619B" Offset="0" />
+                    <GradientStop Color="#00B19B" Offset="1" />
+                </LinearGradientBrush>
+            </Border.Background>
+
+
+            <CommandBar Grid.Row="0" Height="56" IsOpen="True" Foreground="#FDFEFE" HorizontalAlignment="Center" Background="Transparent">
+
+                <AppBarButton x:Name="homeAppButton" Icon="Home" Label="Home" Foreground="#FDFEFE" Click="homeAppButton_Click"/>
+                <AppBarSeparator Foreground="#FDFEFE" Width="200"/>
+                <AppBarButton x:Name="profileAppButton" Icon="Contact" Label="Profile" Foreground="#FDFEFE" Click="profileAppButton_Click"/>
+                <AppBarButton x:Name="bookingAppButton" Icon="Permissions" Label="Book a Room" Width="100" Foreground="#FDFEFE" Click="bookingAppButton_Click"/>
+                <AppBarButton x:Name="bookingHistoryAppButton" Icon="Clock" Label="Booking History" Width="100" Foreground="#FDFEFE" Click="bookingHistoryAppButton_Click"/>
+                <AppBarButton x:Name="feedbackAppButton" Icon="Message" Label="Feedback" Width="100" Foreground="#FDFEFE" Click="feedbackAppButton_Click"/>
+                <AppBarSeparator Foreground="#FDFEFE" Width="200"/>
+                <AppBarButton x:Name="signoutAppButton" Icon="Clear" Label="Sign Out" Foreground="#FDFEFE" Click="signoutAppButton_Click"/>
+
+            </CommandBar>
+
+        </Border>
+
+
+        <Border Background="#FFFFFF" CornerRadius="0 10 10 0" Margin="0,50,0,30" Grid.Row="1" >
+            <StackPanel Margin="100,0,100,0" Width="1255">
+                <TextBlock Text="Make a Booking" Foreground="#3AB19B" Style="{StaticResource BookingHistoryTitleText}"  Width="1240"  Margin="0,10,0,50" />
+
+
+                <ScrollViewer x:Name="bookingPageScroll" Height="500" Width="1196" Margin="0,0,0,30">
+                    <StackPanel>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+
+
+                            <TextBlock x:Name="CheckInDateTitleTB" Grid.Column="0" Grid.Row="0" Text="Check In Date:"  Style="{StaticResource bookingDetailsDataTitle}" />
+                            <DatePicker x:Name="CheckInDatePicker" Grid.Column="1" Grid.Row="0"  Date="{x:Bind ViewModel.CheckInDate, Mode=TwoWay}"  DateChanged="CheckInDatePicker_DateChanged" />
+
+
+                            <TextBlock x:Name="CheckOutDateTitleTB" Grid.Column="0" Grid.Row="1" Text="Check Out Date:" Style="{StaticResource bookingDetailsDataTitle}"/>
+                            <DatePicker x:Name="CheckOutDatePicker"  Grid.Column="1" Grid.Row="1" Date="{x:Bind ViewModel.CheckOutDate, Mode=TwoWay}" DateChanged="CheckOutDatePicker_DateChanged" />
+
+
+                            <TextBlock x:Name="bookingRoomTypeTB" Grid.Column="0" Grid.Row="2" Text="Room Type:" Style="{StaticResource bookingDetailsDataTitle}"/>
+                            <ComboBox
+                            x:Name="RoomTypeComboBox"
+                            ItemsSource="{x:Bind ViewModel.RoomTypes}"
+                            DisplayMemberPath="RoomType"
+                            SelectedValuePath="Key"
+                            SelectedValue="{x:Bind ViewModel.SelectedRoomTypeKey, Mode=TwoWay}"
+                            PlaceholderText="Select Room Type"
+                            SelectionChanged="RoomTypeComboBox_SelectionChanged" Grid.Column="1" Grid.Row="2" Style="{StaticResource bookingpageCombobox}"/>
+
+
+                            <TextBlock x:Name="NumRoomsTitleTB" Grid.Column="0" Grid.Row="3" Text="Number of Rooms:" Style="{StaticResource bookingDetailsDataTitle}"/>
+                            <ComboBox x:Name="NumRoomsComboBox" Grid.Column="1" Grid.Row="3" Style="{StaticResource bookingpageCombobox}" PlaceholderText="Select number of rooms" SelectionChanged="NumRoomsComboBox_SelectionChanged" />
+
+
+                            <TextBlock x:Name="RoomAvailabilityTitleTB" Grid.Column="0" Grid.Row="4" Text="Room Availability:" Style="{StaticResource bookingDetailsDataTitle}"/>
+                            <TextBlock x:Name="RoomAvailabilityTextBlock" Grid.Column="1" Grid.Row="4" Style="{StaticResource bookingpageDataTB}" Text="{x:Bind ViewModel.RoomAvailabilityText, Mode=OneWay}" />
+
+
+                            <TextBlock x:Name="NumAdultsTitleTB" Grid.Column="0" Grid.Row="5" Text="Number of Adults:" Style="{StaticResource bookingDetailsDataTitle}"/>
+                            <TextBox x:Name="NumAdultsTextBox" Grid.Column="1" Grid.Row="5" Style="{StaticResource bookingpageTextBox}" PlaceholderText="Enter the number of adults"/>
+
+
+                            <TextBlock x:Name="NumChildrenTitleTB" Grid.Column="0" Grid.Row="6" Text="Number of Children:" Style="{StaticResource bookingDetailsDataTitle}"/>
+                            <TextBox x:Name="NumChildrenTextBox" Grid.Column="1" Grid.Row="6" Style="{StaticResource bookingpageTextBox}" PlaceholderText="Enter the number of children"/>
+
+
+                            <TextBlock x:Name="SpecialRequestsTitleTB" Grid.Column="0" Grid.Row="7" Text="Special Requests:" Style="{StaticResource bookingDetailsDataTitle}"/>
+                            <TextBox x:Name="SpecialRequestsTextBox" Grid.Column="1" Grid.Row="7" Style="{StaticResource bookingpageTextBox}" PlaceholderText="Enter any special requests"/>
+
+                            <TextBlock x:Name="RoomInfoTB" Grid.Column="0" Grid.Row="8" Text="Room Price:" Style="{StaticResource bookingDetailsDataTitle}"/>
+                            <TextBlock x:Name="RoomInfoTextBlock" Grid.Column="1" Grid.Row="8" Style="{StaticResource bookingpageDataTB}" Text="{Binding RoomPriceText}" />
+
+                        </Grid>
+
+                        <Button x:Name="BookNowButton" Content="Book Now" Click="BookNowButton_Click" Style="{StaticResource bookingPageBooknowButton}"/>
+
+                    </StackPanel>
+
+                </ScrollViewer>
+
+            </StackPanel>
+
+        </Border>
+
+    </Grid>
+
+</Page>

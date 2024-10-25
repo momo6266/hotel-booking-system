@@ -1,0 +1,197 @@
+﻿<Page
+    x:Class="radAssignment2.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:radAssignment2"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+             
+            <RowDefinition Height="56" />
+             
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Border x:Name="Commandbarborder" Grid.Row="0">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#06619B" Offset="0" />
+                    <GradientStop Color="#00B19B" Offset="1" />
+                </LinearGradientBrush>
+            </Border.Background>
+
+
+            <CommandBar Grid.Row="0" Height="56" IsOpen="True" Foreground="#FDFEFE" HorizontalAlignment="Center" Background="Transparent">
+
+                <AppBarButton x:Name="homeAppButton" Icon="Home" Label="Home" Foreground="#FDFEFE" Click="homeAppButton_Click"/>
+                <AppBarSeparator Foreground="#FDFEFE" Width="200"/>
+                <AppBarButton x:Name="profileAppButton" Icon="Contact" Label="Profile" Foreground="#FDFEFE" Click="profileAppButton_Click"/>
+                <AppBarButton x:Name="bookingAppButton" Icon="Permissions" Label="Book a Room" Width="100" Foreground="#FDFEFE" Click="bookingAppButton_Click"/>
+                <AppBarButton x:Name="bookingHistoryAppButton" Icon="Clock" Label="Booking History" Width="100" Foreground="#FDFEFE" Click="bookingHistoryAppButton_Click"/>
+                <AppBarButton x:Name="feedbackAppButton" Icon="Message" Label="Feedback" Width="100" Foreground="#FDFEFE" Click="feedbackAppButton_Click"/>
+                <AppBarSeparator Foreground="#FDFEFE" Width="200"/>
+                <AppBarButton x:Name="signoutAppButton" Icon="Clear" Label="Sign Out" Foreground="#FDFEFE" Click="signoutAppButton_Click"/>
+
+            </CommandBar>
+
+        </Border>
+
+
+
+
+
+        <Border Background="#FFFFFF" CornerRadius="0 10 10 0"  Grid.Row="1" >
+            <ScrollViewer Height="700">
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+
+
+
+                    <StackPanel Grid.Row="0" VerticalAlignment="Center" Height="462">
+
+                        <StackPanel.Background>
+                            <ImageBrush ImageSource="/Assets/greenhoteltitlebackground.jpg" Stretch="UniformToFill" AlignmentY="Bottom"  />
+                        </StackPanel.Background>
+                        <TextBlock Text="Green Hotel" FontFamily="Copperplate Gothic Bold" Style="{StaticResource MainTitleText}"/>
+                        <TextBlock Text="Affordable / Convenient / Relaxation" FontFamily="Calibri Light" FontSize="25" Margin="0,0,0,0" Style="{StaticResource MainTitleText}" />
+                        
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="1" VerticalAlignment="Center" Height="{Binding ActualHeight, ElementName=PageRoot}" Margin="100,50,100,50">
+
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <StackPanel Grid.Column="0" Grid.Row="1" Margin="0,0,100,0">
+                                <Image Source="/Assets/hoteldesc.jpg" Height="462" Width="508"></Image>
+                            </StackPanel>
+
+                            <StackPanel Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" Margin="10,0,10,0" >
+                                <TextBlock Text="Our Hotel" FontSize="35" FontFamily="Century Gothic" />
+                                <TextBlock Text="______" FontSize="25" Foreground="#3AB19B" FontWeight="ExtraBold"  FontFamily="Copperplate Gothic Bold" />
+                                <TextBlock Text="Conveniently Located" FontFamily="Century Gothic" FontSize="30" Margin="0,30,0,30"/>
+                                <TextBlock TextWrapping="Wrap" Text="A 2-minute walk from a bus stop, this straightforward budget hotel is 7 km from the Sunway Lagoon amusement park and 13 km from Bukit Jalil National Stadium." FontFamily="Calibri Light" FontSize="25" Margin="0,0,0,15"/>
+                                <TextBlock TextWrapping="Wrap" Text="The modest, pared-back rooms come with complimentary Wi-Fi, and TVs with premium channels, plus desks and en suite bathrooms. Upgraded rooms add windows." FontFamily="Calibri Light" FontSize="25" Margin="0,0,0,15"/>
+                                <TextBlock TextWrapping="Wrap" Text="Amenities include complimentary parking and a 24-hour reception desk." FontFamily="Calibri Light" FontSize="25" Margin="0,0,0,10"/>
+                            </StackPanel>
+                        </Grid>
+
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="2" Height="300">
+                        <StackPanel.Background>
+                            <ImageBrush ImageSource="/Assets/accomodation.jpg" Stretch="UniformToFill" AlignmentY="Center" ></ImageBrush>
+                        </StackPanel.Background>
+                        <TextBlock Text="Accomodation" FontFamily="Copperplate Gothic Bold" FontSize="60" Margin="0,110,0,0" Foreground="White" HorizontalAlignment="Center" />
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="3">
+                        <TextBlock Text="Room Types" FontFamily="Calibri Light" FontSize="35" Margin="0,50,0,0" HorizontalAlignment="Center" />
+                        <TextBlock Text="___________" FontFamily="Calibri Light" FontSize="35" Margin="0,-30,0,0" Foreground="#3AB19B" HorizontalAlignment="Center" Height="45" />
+
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"></ColumnDefinition>
+                                <ColumnDefinition Width="1*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <GridView Name="roomlist" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" Margin="100,20,10,100">
+                                <GridView.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <ItemsWrapGrid Orientation="Vertical"/>
+                                    </ItemsPanelTemplate>
+                                </GridView.ItemsPanel>
+                                <GridView.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding RoomType}" FontSize="16" Width="300"/>
+
+                                    </DataTemplate>
+                                </GridView.ItemTemplate>
+                            </GridView>
+
+                            <GridView Name="pricelist" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" Margin="10,20,10,100">
+                                <GridView.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <ItemsWrapGrid Orientation="Vertical"/>
+                                    </ItemsPanelTemplate>
+                                </GridView.ItemsPanel>
+                                <GridView.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock FontSize="16" Width="100">
+                                            <Run Text="RM " ></Run>
+                                            <Run Text="{Binding Price}" ></Run>
+                                        </TextBlock>
+                                    </DataTemplate>
+                                </GridView.ItemTemplate>
+                            </GridView>
+                        </Grid>
+
+
+
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="4" Height="300">
+                        <StackPanel.Background>
+                            <ImageBrush ImageSource="/Assets/gallery.jpg" Stretch="UniformToFill" AlignmentY="Center" ></ImageBrush>
+                        </StackPanel.Background>
+                        <TextBlock Text="Gallery" FontFamily="Copperplate Gothic Bold" FontSize="60" Margin="0,110,0,0" Foreground="White" HorizontalAlignment="Center" />
+                    </StackPanel>
+
+
+
+
+                    <GridView x:Name="galleryGrid" Grid.Row="5" HorizontalAlignment="Center" Margin="100,50,100,50" >
+                        <GridView.ItemTemplate>
+                            <DataTemplate x:DataType="local:ImageItem">
+                                <StackPanel Margin="10,10,10,10">
+                                    <Image Source="{Binding ImageURL}" Width="400" Height="400" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </GridView.ItemTemplate>
+                    </GridView>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                </Grid>
+
+
+
+
+
+
+
+            </ScrollViewer>
+
+        </Border>
+
+
+
+    </Grid>
+</Page>

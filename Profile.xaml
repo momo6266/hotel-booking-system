@@ -1,0 +1,121 @@
+﻿<Page
+    x:Class="radAssignment2.Profile"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:radAssignment2"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <!-- The first row contains the CommandBar -->
+            <RowDefinition Height="56" />
+            <!-- The second row contains the content -->
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Border x:Name="Commandbarborder" Grid.Row="0">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#06619B" Offset="0" />
+                    <GradientStop Color="#00B19B" Offset="1" />
+                </LinearGradientBrush>
+            </Border.Background>
+
+
+            <CommandBar Grid.Row="0" Height="56" IsOpen="True" Foreground="#FDFEFE" HorizontalAlignment="Center" Background="Transparent">
+
+                <AppBarButton x:Name="homeAppButton" Icon="Home" Label="Home" Foreground="#FDFEFE" Click="homeAppButton_Click"/>
+                <AppBarSeparator Foreground="#FDFEFE" Width="200"/>
+                <AppBarButton x:Name="profileAppButton" Icon="Contact" Label="Profile" Foreground="#FDFEFE" Click="profileAppButton_Click"/>
+                <AppBarButton x:Name="bookingAppButton" Icon="Permissions" Label="Book a Room" Width="100" Foreground="#FDFEFE" Click="bookingAppButton_Click"/>
+                <AppBarButton x:Name="bookingHistoryAppButton" Icon="Clock" Label="Booking History" Width="100" Foreground="#FDFEFE" Click="bookingHistoryAppButton_Click"/>
+                <AppBarButton x:Name="feedbackAppButton" Icon="Message" Label="Feedback" Width="100" Foreground="#FDFEFE" Click="feedbackAppButton_Click"/>
+                <AppBarSeparator Foreground="#FDFEFE" Width="200"/>
+                <AppBarButton x:Name="signoutAppButton" Icon="Clear" Label="Sign Out" Foreground="#FDFEFE" Click="signoutAppButton_Click"/>
+
+            </CommandBar>
+
+        </Border>
+
+
+        <Border Background="#FFFFFF" CornerRadius="0 10 10 0" Margin="0,50,0,30" Grid.Row="1" >
+            <StackPanel Margin="100,0,100,0" Width="1255">
+                <TextBlock Text="User Profile" Foreground="#3AB19B" Style="{StaticResource BookingHistoryTitleText}"  Width="1240"  Margin="0,10,0,50" />
+
+
+                <ScrollViewer x:Name="profilePageScroll" Height="500" Width="1196" Margin="0,0,0,30">
+                    <StackPanel>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+
+                            </Grid.ColumnDefinitions>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+
+
+                            <TextBlock x:Name="usernameProfileTitleTB" Grid.Column="0" Grid.Row="0" Text="Name:"  Style="{StaticResource profilePageDataTitle}" />
+                            <TextBlock x:Name="usernameProfileDataTB" Grid.Column="1" Grid.Row="0" Style="{StaticResource profilePageData}" Text="Name"/>
+
+
+                            <TextBlock x:Name="emailProfileTitleTB" Grid.Column="0" Grid.Row="1" Text="Email:" Style="{StaticResource profilePageDataTitle}"/>
+                            <TextBlock x:Name="emailProfileDataTB" Grid.Column="1" Grid.Row="1" Style="{StaticResource profilePageData}" Text="Email"/>
+
+
+                            <TextBlock x:Name="nicknameProfileTitleTB" Grid.Column="0" Grid.Row="2" Text="NickName:" Style="{StaticResource profilePageDataTitle}"/>
+                            <TextBlock x:Name="nicknameProfileTB" Grid.Column="1" Grid.Row="2" Style="{StaticResource profilePageData}" Text="NickName"/>
+
+
+                            <TextBlock x:Name="dobProfileTitleTB" Grid.Column="0" Grid.Row="3" Text="Date of Birth:" Style="{StaticResource profilePageDataTitle}"/>
+                            <TextBlock x:Name="dobProfileDataTB" Grid.Column="1" Grid.Row="3" Style="{StaticResource profilePageData}" Text="DOB"/>
+
+
+                            <TextBlock x:Name="phoneNumProfileTitleTB" Grid.Column="0" Grid.Row="4" Text="Phone Number:" Style="{StaticResource profilePageDataTitle}"/>
+                            <TextBlock x:Name="phoneNumProfileDataTB" Grid.Column="1" Grid.Row="4" Style="{StaticResource profilePageData}" Text="Phone"/>
+
+
+                            <TextBlock x:Name="streetProfileTitleTB" Grid.Column="0" Grid.Row="6" Text="Street Address:" Style="{StaticResource profilePageDataTitle}" />
+                            <TextBlock x:Name="streetProfileDataTB" Grid.Column="1" Grid.Row="6"  Style="{StaticResource profilePageData}" Text="Street"/>
+
+                            <TextBlock Grid.Column="0" Grid.Row="5" Margin="0,20,0,0"/>
+
+
+                            <TextBlock x:Name="cityProfileTitleTB" Grid.Column="0" Grid.Row="7" Text="City:" Style="{StaticResource profilePageDataTitle}"/>
+                            <TextBlock x:Name="cityProfileDataTB" Grid.Column="1" Grid.Row="7" Style="{StaticResource profilePageData}" Text="City"/>
+
+                            <TextBlock x:Name="postProfileTitleTB" Grid.Column="0" Grid.Row="8" Text="PostCode:" Style="{StaticResource profilePageDataTitle}"/>
+                            <TextBlock x:Name="postProfileDataTB" Grid.Column="1" Grid.Row="8" Style="{StaticResource profilePageData}" Text="Post"/>
+
+                            <TextBlock x:Name="stateProfileTitleTB" Grid.Column="0" Grid.Row="9" Text="State:" Style="{StaticResource profilePageDataTitle}"/>
+                            <TextBlock x:Name="stateProfileDataTB" Grid.Column="1" Grid.Row="9" Text="State" Style="{StaticResource profilePageData}"/>
+
+                        </Grid>
+
+                        <Button x:Name="editProfileButton" Content="Edit Profile Details" Style="{StaticResource profilePageEditButton}" Click="editProfileButton_Click"/>
+
+                    </StackPanel>
+
+                </ScrollViewer>
+
+            </StackPanel>
+
+        </Border>
+
+    </Grid>
+</Page>

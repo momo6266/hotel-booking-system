@@ -1,0 +1,151 @@
+﻿<Page
+    x:Class="radAssignment2.Admin"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:radAssignment2"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" d:DataContext="{d:DesignInstance Type=local:AdminModel}"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <!-- AppBar row -->
+            <RowDefinition Height="*" />
+            <!-- Main content row -->
+        </Grid.RowDefinitions>
+        <Border x:Name="Commandbarborder" >
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#06619B" Offset="0" />
+                    <GradientStop Color="#00B19B" Offset="1" />
+                </LinearGradientBrush>
+            </Border.Background>
+
+        </Border>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="1.5*" />
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <Border CornerRadius="10 0 0 10" HorizontalAlignment="Left" Width="600" Margin="0,1,0,1">
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="#06619B" Offset="0" />
+                            <GradientStop Color="#00B19B" Offset="1" />
+                        </LinearGradientBrush>
+                    </Border.Background>
+
+                    <Grid HorizontalAlignment="Right" Width="570">
+
+                        <StackPanel VerticalAlignment="Center" Margin="10,0,40,0" HorizontalAlignment="Left">
+                            <TextBlock Text="ADMIN PAGE" Style="{StaticResource TitleText}" Height="97" />
+
+                            <ListView SelectionMode="Single" HorizontalAlignment="Left">
+                                <!-- Admin functions -->
+                                <ListViewItem>
+                                    <StackPanel Orientation="Horizontal">
+                                        <SymbolIcon Symbol="Edit" Width="48" Height="40"/>
+                                        <TextBlock x:Name="roomManage" Text="Room Types Management" Margin="20,0,0,0"  Tapped="roomManage_tapped"/>
+                                    </StackPanel>
+                                </ListViewItem>
+
+                                <ListViewItem>
+                                    <StackPanel Orientation="Horizontal">
+                                        <SymbolIcon Symbol="View" Width="48" Height="48"/>
+                                        <TextBlock x:Name="viewRoom" Text="View Room Type Details" Margin="20,0,0,0" Tapped="viewRoom_tapped"/>
+                                    </StackPanel>
+                                </ListViewItem>
+
+
+                                <ListViewItem>
+                                    <StackPanel Orientation="Horizontal">
+                                        <SymbolIcon Symbol="Mail" Width="48" Height="48"/>
+                                        <TextBlock x:Name="feedback" Text="Respond to Feedback" Margin="20,0,0,0" Tapped="feedback_tapped"/>
+                                    </StackPanel>
+                                </ListViewItem>
+
+                                <ListViewItem>
+                                    <StackPanel Orientation="Horizontal">
+                                        <SymbolIcon Symbol="Clear" Width="48" Height="48"/>
+                                        <TextBlock x:Name="signout" Text="Sign Out" Margin="20,0,0,0" Tapped="signout_tapped" />
+                                        
+                                    </StackPanel>
+                                </ListViewItem>
+                            </ListView>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+            </Grid>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <StackPanel Grid.Row="0" x:Name="Start" Visibility="Collapsed">
+                    <TextBlock x:Name="roomType" Text="Room Type" Margin="20,0,0,0" Tapped="viewRoom_tapped" />
+                    <TextBox x:Name="roomTypetxt" TextWrapping="Wrap" Text="" PlaceholderText="Room Type" Margin="10,5" />
+                </StackPanel>
+                <StackPanel Grid.Row="1" x:Name="Start1" Visibility="Collapsed">
+                    <TextBlock x:Name="roomPrice" Text="Room Price" Margin="20,0,0,0" Tapped="viewRoom_tapped" />
+                    <TextBox x:Name="roomPricetxt" TextWrapping="Wrap" Text="" PlaceholderText="Room Price" Margin="10,5"/>
+                </StackPanel>
+                <StackPanel Grid.Row="2" x:Name="Start2" Visibility="Collapsed">
+                    <TextBlock x:Name="roomLimit" Text="Limit" Margin="20,0,0,0" Tapped="viewRoom_tapped" />
+                    <TextBox x:Name="roomLimittxt" TextWrapping="Wrap" Text="" PlaceholderText="Limit" Margin="10,5"/>
+                </StackPanel>
+                <StackPanel Grid.Row="3" x:Name="Start3" Visibility="Collapsed">
+                    <Grid Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Button x:Name="addButton" Content="Add Room Type" Grid.Column="0" Click="addButton_Click" Margin="10,10"/>
+                        <Button x:Name="deleteButton" Content="Delete Room Type" Grid.Column="1" HorizontalAlignment="Center" Click="deleteButton_Click" Margin="10,10" CommandParameter="{Binding}"/>
+                        <Button x:Name="updateButton" Content="Update Room Type" Grid.Column="2" Click="updatedButton_Click" Margin="10,10"/>
+                        <Button x:Name="editButton" Content="Edit Room Type" Grid.Column="3" Click="editButton_Click" Margin="10,10" Tag="{Binding RoomType}"/>
+
+                    </Grid>
+                </StackPanel>
+                <StackPanel Grid.Row="4" x:Name="myGrid" Visibility="Collapsed">
+                    <ListView x:Name="lstRooms">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Height="50" Margin="1">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Grid.Column="0" VerticalAlignment="Top" Margin="3,0,0,0">
+                                        <TextBlock Text="Room Type" TextWrapping="NoWrap" FontWeight="Bold"/>
+                                        <TextBlock Text="{Binding RoomType}" TextWrapping="NoWrap"/>
+                                    </StackPanel>
+                                    <StackPanel Grid.Column="1" VerticalAlignment="Top" Margin="3,0,0,0">
+                                        <TextBlock Text="Price" TextWrapping="NoWrap" FontWeight="Bold"/>
+                                        <TextBlock Text="{Binding Price}" TextWrapping="NoWrap"/>
+                                    </StackPanel>
+                                    <StackPanel Grid.Column="2" VerticalAlignment="Top" Margin="3,0,0,0">
+                                        <TextBlock Text="Limit" TextWrapping="NoWrap" FontWeight="Bold"/>
+                                        <TextBlock Text="{Binding Limit}" TextWrapping="NoWrap"/>
+                                    </StackPanel>
+                                </Grid>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackPanel>
+            </Grid >
+        </Grid>
+    </Grid>
+</Page>
